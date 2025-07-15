@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Warship;
 use Illuminate\Console\View\Components\Warn;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class WarshipController extends Controller
 {
@@ -34,5 +35,20 @@ class WarshipController extends Controller
 
         return response()->json(['message' =>' warship added successfully']);
 
+    }
+
+    public function update(Request $request,$id){
+        $warship = Warship::findOrFail($id);
+
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+            'type' => 'required|in:battleship,cruiser,destroyer,aircraftCarrier',
+            'mainarmaments' => 'required|in:120mm,127mm,130mm,152mm,203mm,280mm,320mm,356mm,381mm,406mm,460mm',
+        ]);
+
+        $warship->update($data);
+
+        return response()->json(['message' => 'warship updated!']);
     }
 }
