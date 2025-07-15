@@ -1,13 +1,13 @@
 📡 Warships REST API
-This project also provides a RESTful API for interacting with warship data.
+This project includes a RESTful API for managing warship data.
 
-🔗 API Endpoints
+🔗 Available Endpoints
 Method	Endpoint	Description
 GET	/api/warship	Retrieve all warships
 GET	/api/warship/{id}	Retrieve a specific warship by ID
 POST	/api/warship	Create a new warship
-PUT	/api/warship/{id}	Update an existing warship (full update)
-PATCH	/api/warship/{id}	Update an existing warship (partial update)
+PUT	/api/warship/{id}	Fully update an existing warship
+PATCH	/api/warship/{id}	Partially update an existing warship
 DELETE	/api/warship/{id}	Delete a warship by ID
 
-All endpoints return JSON-formatted responses.
+📦 All responses are returned in JSON format.
